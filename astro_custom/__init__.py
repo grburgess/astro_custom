@@ -7,4 +7,11 @@ __email__ = 'jburgess@mpe.mpg.de'
 
 
 from .utils.configuration import astro_custom_config, show_configuration
-from .utils.logging import update_logging_level, activate_warnings, silence_warnings
+from .utils.logging import (
+    update_logging_level,
+    activate_warnings,
+    silence_warnings,
+)
+
+
+from .tbabs_cut import TbAbsCut
