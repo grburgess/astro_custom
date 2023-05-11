@@ -15,3 +15,5 @@ from .utils.logging import (
 
 
 from .tbabs_cut import TbAbsCut
+
+from .contour import contour_plot
