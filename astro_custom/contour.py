@@ -5,6 +5,7 @@ from astromodels import Model
 from typing import List
 import betagen
 
+
 def contour_plot(
     samples: np.ndarray,
     model: Model,
@@ -13,14 +14,13 @@ def contour_plot(
     levels: List[float] = [65, 95, 99],
     unit: str = "erg / cm2 / s",
     thin: int = 10,
-        base_color = '#CE33FF',
+    base_color='#CE33FF',
     ax=None,
     **kwargs
 ):
     y = []
 
     b = betagen.BetaGen(base_color)
-
 
     for sample in tqdm(samples[::thin]):
         model.set_free_parameters(sample)
@@ -40,6 +40,10 @@ def contour_plot(
         low, high = np.percentile(
             y, [50.0 - level / 2.0, 50 + level / 2.0], axis=0
         )
+
+        if len(levels) == 1:
+
+            color = base_color
 
         ax.fill_between(energies.value, low, high, color=color, **kwargs)
 

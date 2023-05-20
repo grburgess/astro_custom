@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional
 
@@ -29,7 +29,7 @@ class Logging:
 @dataclass
 class astro_customConfig:
 
-    logging: Logging = Logging()
+    logging: Logging = field(default_factory = Logging)
 
 
 
